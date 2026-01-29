@@ -1,0 +1,1 @@
+Bạn đã yêu cầu thay đổi mật khẩu. Để tạo một mật khẩu mới, xin vui lòng bấm vào liên kết dưới đây: <a href='{{ $link }}'>{{ $link }}</a>.

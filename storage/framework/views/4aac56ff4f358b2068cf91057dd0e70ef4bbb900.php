@@ -1,0 +1,1 @@
+Bạn đã yêu cầu thay đổi mật khẩu. Để tạo một mật khẩu mới, xin vui lòng bấm vào liên kết dưới đây: <a href='<?php echo e($link); ?>'><?php echo e($link); ?></a>.

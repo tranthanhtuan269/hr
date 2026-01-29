@@ -1,0 +1,84 @@
+
+
+<?php $__env->startSection('title', 'Chức danh'); ?>
+
+<?php $__env->startSection('content'); ?>
+<div class="row content-function">
+	<!-- Danh muc -->
+	<?php echo $__env->make('layouts.hoso.menuleft', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>
+	<div class="col-lg-10">
+		<div class="row">
+			<div class="col-lg-12">
+				<h4 class="title-fuction">Quản trị chức danh</h4>
+				  <?php if(session('flash_message_succ') != ''): ?>
+			     	 <div class="alert alert-success" role="alert"> <?php echo e(session('flash_message_succ')); ?></div>
+			      <?php endif; ?>
+				<form class="form-horizontal" method="get" action="">
+					<div class="form-group col-lg-6">
+						<label for="hoten" class="col-sm-4 control-label">Tên chức danh</label>
+						<div class="col-sm-8">
+							<input type="text" class="form-control" name="title"  autocomplete="off" placeholder="Tên chức danh" value="<?php echo e(Request::get('title')); ?>">
+						</div>
+					</div>
+					 <div class="form-group col-lg-6">
+			          <div class="text-center">
+			            <button type="submit" class="btn btn-sm btn-orange">Tìm kiếm</button>
+			          </div>
+			        </div>
+			        <?php echo e(csrf_field()); ?>
+
+				</form>
+
+
+			</div>
+			<div class="col-lg-12">
+				<h4 class="title-fuction">Danh sách chức danh 
+					<?php if(in_array('hoso-themchucdanh',$arr_route)): ?>
+						<a href="<?php echo e(route('addJobTitles')); ?>"><img src="<?php echo e(asset('images/general/add.png')); ?>"></a>
+					<?php endif; ?>
+				</h4>
+				<div class="table-responsive">
+					<table class="table table-hover">
+					    <tbody>
+						    <tr>
+						      <th>STT</th>
+						      <th>Tên chức danh </th>
+						      <th>&nbsp;&nbsp;</th>
+						    </tr>
+						    <?php if(!empty($data)): ?>
+								<?php 
+									if( !isset($_GET['page']) || $_GET['page']==1 ){
+										$i = 1;
+									}else{
+										$i = ($_GET['page']*BatvHelper::getPagePaging() -BatvHelper::getPagePaging() ) +1;
+									}
+								?>
+						     	<?php foreach($data as $val): ?>
+						     <tr>
+						      <td><?php echo e($i); ?></td>
+						      <td> <?php echo e($val->title); ?> </td>
+						      <td>
+									<?php if(in_array('hoso-suachucdanh',$arr_route)): ?>
+							       		<a class="btn-edit" href="<?php echo e(route('getJobTitlesEdit',['id'=>$val->id])); ?>"><img src="<?php echo e(asset('images/general/edit.png')); ?>"></a>
+									<?php endif; ?>
+									<?php if(in_array('hoso-xoachucdanh',$arr_route)): ?>
+							       		<a class="btn-delete" href="<?php echo e(route('getJobTitlesDel',['id'=>$val->id])); ?>" onclick="return confirm('Bạn có chắc chắn muốn xóa ?')"><img src="<?php echo e(asset('images/general/remove.png')); ?>"></a>
+									<?php endif; ?>
+						      </td>  
+						    </tr>
+						    	<?php $i++ ?>
+						    	<?php endforeach; ?>
+						    <?php endif; ?>
+					    </tbody>
+					</table>
+				</div>
+			</div>
+			<div class="col-lg-12 text-right">
+				<?php echo e($data->appends(Request::query())->render()); ?> 
+			</div>
+		</div>
+	</div>
+</div>
+
+<?php $__env->stopSection(); ?>
+<?php echo $__env->make('layouts.master', array_except(get_defined_vars(), array('__data', '__path')))->render(); ?>

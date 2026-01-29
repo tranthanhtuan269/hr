@@ -1,0 +1,2 @@
+- Phần tổng hợp chấm công đã oke, nếu tìm kiếm chưa ra là do chưa cập nhật lại tất cả bảng chấm công các tháng
+- Phần show số ngày làm việc của nhân viên nửa này nửa kìa đang chưa chính xác: do hiện tại đang tính tổng ngày nghỉ ko phép rồi trừ luôn vào 2 trường. Giải pháp: Tính từng khoảng thời gian ngày nghỉ phép, sau đó trừ theo khoảng thời gian hợp đồng đó
