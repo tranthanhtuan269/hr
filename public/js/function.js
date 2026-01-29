@@ -65,7 +65,7 @@ jQuery(document).ready(function(){
 	$( ".datepicker" ).datepicker({
     		changeMonth: true,
 				changeYear: true,
-				yearRange: "1970:2025",
+				yearRange: "1970:2050",
 				dateFormat: 'dd/mm/yy'
 
     	}	
@@ -74,7 +74,7 @@ jQuery(document).ready(function(){
   $( ".datepicker_day" ).datepicker({
         changeMonth: true,
         changeYear: true,
-        yearRange: "1970:2025",
+        yearRange: "1970:2050",
         dateFormat: 'dd'
 
       } 
@@ -85,7 +85,7 @@ jQuery(document).ready(function(){
 	$( "#datetimepicker" ).datepicker({
     		changeMonth: true,
 			changeYear: true,
-			yearRange: "1970:2025",
+			yearRange: "1970:2050",
 			dateFormat: 'dd/mm/yy',	
     	}	
     ).datepicker('setDate', currentDate);
@@ -98,7 +98,7 @@ jQuery(document).ready(function(){
 			maxDate: '0',
     		changeMonth: true,
 			changeYear: true,
-			yearRange: "1970:2025",
+			yearRange: "1970:2050",
 			dateFormat: 'dd/mm/yy',	
     	}	
     ).datepicker('setDate', currentDate);
@@ -109,7 +109,7 @@ jQuery(document).ready(function(){
 	$( ".datepicker_special" ).datepicker({
     		changeMonth: true,
 				changeYear: true,
-				yearRange: "1970:2025",
+				yearRange: "1970:2050",
 				dateFormat: 'mm/yy'
 
     	}	
